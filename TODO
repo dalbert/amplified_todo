@@ -5,7 +5,9 @@ Amplify Studio/CLI:
         ✔ Does “amplify help” work now? @1m @done(23-02-08 16:35)
         ✔ Configure Amplify CLI @10m @done(23-02-08 16:36)
     ☐ Create Amplify web app from amplify CLI @30m
-        ☐ Configure Amplify @20m @started(23-02-12 11:14)
+        ☐ Connect Todo app to the cloud @30m 
+        https://docs.amplify.aws/start/getting-started/add-api/q/integration/flutter/
+        ✔ Configure Amplify @20m @started(23-02-12 11:14) @done(23-02-12 12:00) @lasted(46m3s)
         https://docs.amplify.aws/start/getting-started/integrate/q/integration/flutter/#configure-amplify
         ✔ Generate model files @30m @done(23-02-12 11:13)
     https://docs.amplify.aws/start/getting-started/generate-model/q/integration/flutter/
