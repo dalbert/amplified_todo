@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // amplify packages you will need to use
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
+import 'package:amplify_api/amplify_api.dart';
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 
 // amplify configuration and models that should have been generated for you
 import 'amplifyconfiguration.dart';
@@ -37,6 +39,8 @@ class TodosPage extends StatefulWidget {
 }
 
 class _TodosPageState extends State<TodosPage> {
+  final apiPlugin = AmplifyAPI();
+  final authPlugin = AmplifyAuthCognito();
   // subscription of Todo QuerySnapshots - to be initialized at runtime
   late StreamSubscription<QuerySnapshot<Todo>>
       _subscription; // loading ui state - initially set to a loading state
@@ -86,7 +90,7 @@ class _TodosPageState extends State<TodosPage> {
           AmplifyDataStore(modelProvider: ModelProvider.instance);
 
       // add Amplify plugins
-      await Amplify.addPlugins([_dataStorePlugin]);
+      await Amplify.addPlugins([_dataStorePlugin, apiPlugin, authPlugin]);
 
       // configure Amplify
       //
