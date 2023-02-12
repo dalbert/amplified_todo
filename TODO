@@ -5,22 +5,24 @@ Amplify Studio/CLI:
         ✔ Does “amplify help” work now? @1m @done(23-02-08 16:35)
         ✔ Configure Amplify CLI @10m @done(23-02-08 16:36)
     ☐ Create Amplify web app from amplify CLI @30m
-    ☐ @today Generate model files @30m
+        ☐ Configure Amplify @20m @started(23-02-12 11:14)
+        https://docs.amplify.aws/start/getting-started/integrate/q/integration/flutter/#configure-amplify
+        ✔ Generate model files @30m @done(23-02-12 11:13)
     https://docs.amplify.aws/start/getting-started/generate-model/q/integration/flutter/
     amplify pull --sandboxId a0affb6c-f623-4e48-98f4-34a26e49fca8 <-- noting the SandBoxId
-      ✔ Install Dart @10m @done(23-02-11 00:58)
-      ✔ Install Dart extensions for VSCode @10m @done(23-02-11 00:58)
-      ✔ Install Flutter extensions? @10m @done(23-02-11 00:59)
-    ✔ https://docs.amplify.aws/start/getting-started/setup/q/integration/flutter/#set-up-your-application @1h @done(23-02-11 21:11)
+        ✔ Install Dart @10m @done(23-02-11 00:58)
+        ✔ Install Dart extensions for VSCode @10m @done(23-02-11 00:58)
+        ✔ Install Flutter extensions? @10m @done(23-02-11 00:59)
+        ✔ https://docs.amplify.aws/start/getting-started/setup/q/integration/flutter/#set-up-your-application @1h @done(23-02-11 21:11)
     amplify pull --sandboxId af67694e-c3f8-4231-83ba-4a9f075d00f5 
-      ✔ install Cocoapods @1h @done(23-02-11 21:03)
-      ✔ Install newer, non-default Ruby version @15m @done(23-02-11 21:03)
+        ✔ install Cocoapods @1h @done(23-02-11 21:03)
+        ✔ Install newer, non-default Ruby version @15m @done(23-02-11 21:03)
       https://www.rubyonmac.dev/error-error-installing-cocoapods-error-failed-to-build-gem-native-extension
       "You have to install development tools first."
 
       echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
-echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
-echo "chruby ruby-3.2.1" >> ~/.zshrc
+      echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
+      echo "chruby ruby-3.2.1" >> ~/.zshrc
       
     ☐ Create Lambda(Go) from amplify CLI, added to the Amplify web app @30m
     ☐ Create form in Amplify (eg. Mortgage record) stored in a AWS DB @20m
@@ -41,7 +43,7 @@ Flutter:
 Todos:
   You can write plain text notes/descriptions wherever you want
   New:
-    ☐ Press Cmd/Ctrl+Enter to add a new todo
+    ✔ Press Cmd/Ctrl+Enter to add a new todo @done(23-02-12 11:36)
   Done:
     ✔ Press Alt+D to mark a todo as done
     ✔ Press it again to undo the action
@@ -49,14 +51,14 @@ Todos:
     ✘ Press Alt+C to mark a todo as cancelled
     ✘ Press it again to undo the action
   Tagging:
-    ☐ You can add tags using the @ symbol, like this @tag
-    ☐ There are some special, customizable tags: @critical @high @low @today
+    ✔ You can add tags using the @ symbol, like this @tag @done(23-02-12 11:36)
+    ✔ There are some special, customizable tags: @critical @high @low @today @done(23-02-12 11:36)
   Timekeeping:
     ✔ Completed todos can show a timestamp @done(17-11-03 10:42)
-    ☐ Press Alt+S to mark a todo as started @started(17-11-03 10:42)
+    ✔ Press Alt+S to mark a todo as started @started(17-11-03 10:42) @done(23-02-12 11:36) @lasted(5y14w4d1h54m22s)
       ✔ Now it will show the elapsed time @started(17-11-03 10:42) @done(17-11-03 20:11) @lasted(9h29m)
-    ☐ You can provide time estimates for your todos @1h30m
-      ☐ We are even doing some natural language processing @est(1 day and 20 minutes)
+    ✔ You can provide time estimates for your todos @1h30m @done(23-02-12 11:36)
+      ✔ We are even doing some natural language processing @est(1 day and 20 minutes) @done(23-02-12 11:36)
 
 Formatting:
   You can format text in a markdown-like fashion
