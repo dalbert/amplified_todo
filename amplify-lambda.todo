@@ -1,0 +1,67 @@
+Amplify Studio/CLI:
+    ✔ Install AWS Amplify CLI @done(23-02-08 16:36)
+        ✔ Install Node/NPM/NVM so they make Amplify CLI work @30m @done(23-02-08 16:35)
+        ✔ Reinstall Amplify CLI afterNode shit @10m @done(23-02-08 16:35)
+        ✔ Does “amplify help” work now? @1m @done(23-02-08 16:35)
+        ✔ Configure Amplify CLI @10m @done(23-02-08 16:36)
+    ☐ Create Amplify web app from amplify CLI @30m
+      ✔ Install Dart @10m @done(23-02-11 00:58)
+      ✔ Install Dart extensions for VSCode @10m @done(23-02-11 00:58)
+      ✔ Install Flutter extensions? @10m @done(23-02-11 00:59)
+    ☐ @today https://docs.amplify.aws/start/getting-started/setup/q/integration/flutter/#set-up-your-application @1h
+    amplify pull --sandboxId af67694e-c3f8-4231-83ba-4a9f075d00f5 
+      ☐ @today install Cocoapods @1h
+      ☐ @today Install newer, non-default Ruby version @15m
+      https://www.rubyonmac.dev/error-error-installing-cocoapods-error-failed-to-build-gem-native-extension
+      "You have to install development tools first."
+      
+    ☐ Create Lambda(Go) from amplify CLI, added to the Amplify web app @30m
+    ☐ Create form in Amplify (eg. Mortgage record) stored in a AWS DB @20m
+    ☐ Code the Amplify Lambda(Go) to take the inputs from the Amplify form (or the DB) and do mortgage calcs @3h
+    Lambda Example (Go):
+        ✔ Install AWS CLI @30m @done(23-02-08 16:21)
+        ✔ Deploy Lambda (Python) from AWS CLI @15m @done(23-02-08 16:21)
+        ✔ Deploy Lambda (Go) from AWS CLI @30m @done(23-02-08 16:21)
+        ✔ Run Lambda (Go) locally from AWS CLI @1h @done(23-02-08 16:21)
+        ✔ Change default Lambda(Go) code to output proper JSON @1h @done(23-02-08 16:21)
+  
+Flutter:
+  ✔ Install Xcode for MacOS/IOS emulation @30m @low @done(23-02-09 12:11)
+
+
+
+
+Todos:
+  You can write plain text notes/descriptions wherever you want
+  New:
+    ☐ Press Cmd/Ctrl+Enter to add a new todo
+  Done:
+    ✔ Press Alt+D to mark a todo as done
+    ✔ Press it again to undo the action
+  Cancelled:
+    ✘ Press Alt+C to mark a todo as cancelled
+    ✘ Press it again to undo the action
+  Tagging:
+    ☐ You can add tags using the @ symbol, like this @tag
+    ☐ There are some special, customizable tags: @critical @high @low @today
+  Timekeeping:
+    ✔ Completed todos can show a timestamp @done(17-11-03 10:42)
+    ☐ Press Alt+S to mark a todo as started @started(17-11-03 10:42)
+      ✔ Now it will show the elapsed time @started(17-11-03 10:42) @done(17-11-03 20:11) @lasted(9h29m)
+    ☐ You can provide time estimates for your todos @1h30m
+      ☐ We are even doing some natural language processing @est(1 day and 20 minutes)
+
+Formatting:
+  You can format text in a markdown-like fashion
+  Bold:
+    ☐ Use asterisks for *bold*
+  Italic:
+    ☐ Use underscores for _italic_
+  Strikethrough:
+    ☐ Use tildes for ~strikethrough~
+  Code:
+    ☐ Use backticks for `code`
+
+Archive:
+  ✔ You can archive finished todos here
+  ✔ Congratulations, you are now a Todo+ master!
