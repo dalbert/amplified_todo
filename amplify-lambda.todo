@@ -5,15 +5,21 @@ Amplify Studio/CLI:
         ✔ Does “amplify help” work now? @1m @done(23-02-08 16:35)
         ✔ Configure Amplify CLI @10m @done(23-02-08 16:36)
     ☐ Create Amplify web app from amplify CLI @30m
+    ☐ @today Generate model files @30m
+    https://docs.amplify.aws/start/getting-started/generate-model/q/integration/flutter/
       ✔ Install Dart @10m @done(23-02-11 00:58)
       ✔ Install Dart extensions for VSCode @10m @done(23-02-11 00:58)
       ✔ Install Flutter extensions? @10m @done(23-02-11 00:59)
-    ☐ @today https://docs.amplify.aws/start/getting-started/setup/q/integration/flutter/#set-up-your-application @1h
+    ✔ https://docs.amplify.aws/start/getting-started/setup/q/integration/flutter/#set-up-your-application @1h @done(23-02-11 21:11)
     amplify pull --sandboxId af67694e-c3f8-4231-83ba-4a9f075d00f5 
-      ☐ @today install Cocoapods @1h
-      ☐ @today Install newer, non-default Ruby version @15m
+      ✔ install Cocoapods @1h @done(23-02-11 21:03)
+      ✔ Install newer, non-default Ruby version @15m @done(23-02-11 21:03)
       https://www.rubyonmac.dev/error-error-installing-cocoapods-error-failed-to-build-gem-native-extension
       "You have to install development tools first."
+
+      echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
+echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
+echo "chruby ruby-3.2.1" >> ~/.zshrc
       
     ☐ Create Lambda(Go) from amplify CLI, added to the Amplify web app @30m
     ☐ Create form in Amplify (eg. Mortgage record) stored in a AWS DB @20m
