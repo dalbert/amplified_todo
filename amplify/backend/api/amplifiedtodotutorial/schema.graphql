@@ -1,6 +1,14 @@
+type Mortgage @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  startBalance: Float
+  interestRate: Float
+  termMonths: Int
+}
+
 type Todo @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   description: String
   isComplete: Boolean!
-} 
+}
+ 
