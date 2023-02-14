@@ -5,7 +5,7 @@ Amplify Studio/CLI:
         ✔ Does “amplify help” work now? @1m @done(23-02-08 16:35)
         ✔ Configure Amplify CLI @10m @done(23-02-08 16:36)
     ☐ Create Amplify web app from amplify CLI @30m
-        ☐ Connect Todo app to the cloud @30m @high @today
+        ✔ Connect Todo app to the cloud @30m @done(23-02-13 10:32)
         ☐ read about hot reload/restart for Flutter @30m @low
         https://docs.flutter.dev/development/tools/hot-reload
         https://docs.amplify.aws/start/getting-started/add-api/q/integration/flutter/
