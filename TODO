@@ -1,12 +1,22 @@
-Amplify Studio/CLI:
+Mortgage App:
+  ✔ Add mortgage table in AWS UI @done(23-02-15 15:46)
+  ✔ Add mortgage form in AWS UI @done(23-02-15 15:46)
+  ☐ Integrate mortgage form into the todo app from the tutorial
+  ☐ Implement ammortization calculation in Go Lambda @1h
+  ☐ Add tabley view to app, render monthly results from the ammortization calc @3h
+
+
+
+
+✔ Amplify Studio/CLI: @done(23-02-15 15:44)
     ✔ Install AWS Amplify CLI @done(23-02-08 16:36)
         ✔ Install Node/NPM/NVM so they make Amplify CLI work @30m @done(23-02-08 16:35)
         ✔ Reinstall Amplify CLI afterNode shit @10m @done(23-02-08 16:35)
         ✔ Does “amplify help” work now? @1m @done(23-02-08 16:35)
         ✔ Configure Amplify CLI @10m @done(23-02-08 16:36)
-    ☐ Create Amplify web app from amplify CLI @30m
+    ✔ Create Amplify web app from amplify CLI @30m @done(23-02-15 15:44)
         ✔ Connect Todo app to the cloud @30m @done(23-02-13 10:32)
-        ☐ read about hot reload/restart for Flutter @30m @low
+        ✔ read about hot reload/restart for Flutter @30m @low @done(23-02-15 15:43)
         https://docs.flutter.dev/development/tools/hot-reload
         https://docs.amplify.aws/start/getting-started/add-api/q/integration/flutter/
         ✔ Configure Amplify @20m @started(23-02-12 11:14) @done(23-02-12 12:00) @lasted(46m3s)
