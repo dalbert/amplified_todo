@@ -1,7 +1,7 @@
 Mortgage App:
   ✔ Add mortgage table in AWS UI @done(23-02-15 15:46)
   ✔ Add mortgage form in AWS UI @done(23-02-15 15:46)
-  ☐ Integrate mortgage form into the todo app from the tutorial
+  ☐ Integrate mortgage form into the todo app from the tutorial @30m
   ☐ Implement ammortization calculation in Go Lambda @1h
   ☐ Add tabley view to app, render monthly results from the ammortization calc @3h
 
