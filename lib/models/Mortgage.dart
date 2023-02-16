@@ -28,9 +28,10 @@ import 'package:flutter/foundation.dart';
 class Mortgage extends Model {
   static const classType = const _MortgageModelType();
   final String id;
-  final double? _startBalance;
+  final String? _name;
   final double? _interestRate;
   final int? _termMonths;
+  final double? _startBalance;
   final TemporalDateTime? _createdAt;
   final TemporalDateTime? _updatedAt;
 
@@ -47,8 +48,8 @@ class Mortgage extends Model {
       );
   }
   
-  double? get startBalance {
-    return _startBalance;
+  String? get name {
+    return _name;
   }
   
   double? get interestRate {
@@ -59,6 +60,10 @@ class Mortgage extends Model {
     return _termMonths;
   }
   
+  double? get startBalance {
+    return _startBalance;
+  }
+  
   TemporalDateTime? get createdAt {
     return _createdAt;
   }
@@ -67,14 +72,15 @@ class Mortgage extends Model {
     return _updatedAt;
   }
   
-  const Mortgage._internal({required this.id, startBalance, interestRate, termMonths, createdAt, updatedAt}): _startBalance = startBalance, _interestRate = interestRate, _termMonths = termMonths, _createdAt = createdAt, _updatedAt = updatedAt;
+  const Mortgage._internal({required this.id, name, interestRate, termMonths, startBalance, createdAt, updatedAt}): _name = name, _interestRate = interestRate, _termMonths = termMonths, _startBalance = startBalance, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory Mortgage({String? id, double? startBalance, double? interestRate, int? termMonths}) {
+  factory Mortgage({String? id, String? name, double? interestRate, int? termMonths, double? startBalance}) {
     return Mortgage._internal(
       id: id == null ? UUID.getUUID() : id,
-      startBalance: startBalance,
+      name: name,
       interestRate: interestRate,
-      termMonths: termMonths);
+      termMonths: termMonths,
+      startBalance: startBalance);
   }
   
   bool equals(Object other) {
@@ -86,9 +92,10 @@ class Mortgage extends Model {
     if (identical(other, this)) return true;
     return other is Mortgage &&
       id == other.id &&
-      _startBalance == other._startBalance &&
+      _name == other._name &&
       _interestRate == other._interestRate &&
-      _termMonths == other._termMonths;
+      _termMonths == other._termMonths &&
+      _startBalance == other._startBalance;
   }
   
   @override
@@ -100,9 +107,10 @@ class Mortgage extends Model {
     
     buffer.write("Mortgage {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("startBalance=" + (_startBalance != null ? _startBalance!.toString() : "null") + ", ");
+    buffer.write("name=" + "$_name" + ", ");
     buffer.write("interestRate=" + (_interestRate != null ? _interestRate!.toString() : "null") + ", ");
     buffer.write("termMonths=" + (_termMonths != null ? _termMonths!.toString() : "null") + ", ");
+    buffer.write("startBalance=" + (_startBalance != null ? _startBalance!.toString() : "null") + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -110,35 +118,38 @@ class Mortgage extends Model {
     return buffer.toString();
   }
   
-  Mortgage copyWith({double? startBalance, double? interestRate, int? termMonths}) {
+  Mortgage copyWith({String? name, double? interestRate, int? termMonths, double? startBalance}) {
     return Mortgage._internal(
       id: id,
-      startBalance: startBalance ?? this.startBalance,
+      name: name ?? this.name,
       interestRate: interestRate ?? this.interestRate,
-      termMonths: termMonths ?? this.termMonths);
+      termMonths: termMonths ?? this.termMonths,
+      startBalance: startBalance ?? this.startBalance);
   }
   
   Mortgage.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _startBalance = (json['startBalance'] as num?)?.toDouble(),
+      _name = json['name'],
       _interestRate = (json['interestRate'] as num?)?.toDouble(),
       _termMonths = (json['termMonths'] as num?)?.toInt(),
+      _startBalance = (json['startBalance'] as num?)?.toDouble(),
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'startBalance': _startBalance, 'interestRate': _interestRate, 'termMonths': _termMonths, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'name': _name, 'interestRate': _interestRate, 'termMonths': _termMonths, 'startBalance': _startBalance, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'startBalance': _startBalance, 'interestRate': _interestRate, 'termMonths': _termMonths, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'name': _name, 'interestRate': _interestRate, 'termMonths': _termMonths, 'startBalance': _startBalance, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryModelIdentifier<MortgageModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<MortgageModelIdentifier>();
   static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField STARTBALANCE = QueryField(fieldName: "startBalance");
+  static final QueryField NAME = QueryField(fieldName: "name");
   static final QueryField INTERESTRATE = QueryField(fieldName: "interestRate");
   static final QueryField TERMMONTHS = QueryField(fieldName: "termMonths");
+  static final QueryField STARTBALANCE = QueryField(fieldName: "startBalance");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Mortgage";
     modelSchemaDefinition.pluralName = "Mortgages";
@@ -157,9 +168,9 @@ class Mortgage extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: Mortgage.STARTBALANCE,
+      key: Mortgage.NAME,
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.double)
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
@@ -172,6 +183,12 @@ class Mortgage extends Model {
       key: Mortgage.TERMMONTHS,
       isRequired: false,
       ofType: ModelFieldType(ModelFieldTypeEnum.int)
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: Mortgage.STARTBALANCE,
+      isRequired: false,
+      ofType: ModelFieldType(ModelFieldTypeEnum.double)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(

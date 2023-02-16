@@ -113,17 +113,45 @@ class _TodosPageState extends State<TodosPage> {
       body: _isLoading
           ? Center(child: CircularProgressIndicator())
           : TodosList(todos: _todos),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AddTodoForm()),
-          );
-        },
-        tooltip: 'Add Todo',
-        label: Row(
-          children: const [Icon(Icons.add), Text('Add todo')],
-        ),
+      floatingActionButton: Wrap(
+        direction: Axis.horizontal,
+        children: <Widget>[
+          Container(
+            // Add Todo
+            margin: EdgeInsets.all(10),
+            child: FloatingActionButton.extended(
+              heroTag: "TodoButt",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AddTodoForm()),
+                );
+              },
+              tooltip: 'Add Todo',
+              label: Row(
+                children: const [Icon(Icons.add), Text('Add todo')],
+              ),
+            ),
+          ),
+          Container(
+            // Add Mortgage
+            margin: EdgeInsets.all(10),
+            child: FloatingActionButton.extended(
+              heroTag: "MortButt",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AddMortgageForm()),
+                );
+              },
+              tooltip: 'Add Mortgage',
+              label: Row(
+                children: const [Icon(Icons.add), Text('Add mortgage')],
+              ),
+            ),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
@@ -213,6 +241,93 @@ class TodoItem extends StatelessWidget {
                     : Icons.check_box_outline_blank,
                 size: iconSize),
           ]),
+        ),
+      ),
+    );
+  }
+}
+
+class AddMortgageForm extends StatefulWidget {
+  const AddMortgageForm({Key? key}) : super(key: key);
+
+  @override
+  State<AddMortgageForm> createState() => _AddMortgageFormState();
+}
+
+class _AddMortgageFormState extends State<AddMortgageForm> {
+  late final TextEditingController _nameController;
+  late final TextEditingController _rateController;
+
+  @override
+  void initState() {
+    _nameController = TextEditingController();
+    _rateController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _nameController.dispose();
+    _rateController.dispose();
+  }
+
+  Future<void> _saveMortgage() async {
+    // get the current text field contents
+    final name = _nameController.text;
+    final rate = _rateController.text;
+    // create a new Mortgage from the form values
+    var interestRate = double.tryParse(rate);
+    if (rate.isEmpty) {
+      interestRate = 0.0;
+    }
+    final newMortgage = Mortgage(
+      name: name,
+      interestRate: interestRate,
+    );
+    try {
+      // to write data to DataStore, you simply pass an instance of a model to
+      // Amplify.DataStore.save()
+      await Amplify.DataStore.save(newMortgage);
+      // after creating a new Todo, close the form
+      // Be sure the context at that moment is still valid and mounted
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
+    } catch (e) {
+      safePrint('An error occurred while saving Todo: $e');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add Todo'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextFormField(
+                controller: _nameController,
+                decoration:
+                    const InputDecoration(filled: true, labelText: 'Name'),
+              ),
+              TextFormField(
+                controller: _rateController,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                    filled: true, labelText: 'Interest Rate'),
+              ),
+              ElevatedButton(
+                onPressed: _saveMortgage,
+                child: const Text('Save'),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -1,8 +1,9 @@
 type Mortgage @model @auth(rules: [{allow: public}]) {
   id: ID!
-  startBalance: Float
+  name: String
   interestRate: Float
   termMonths: Int
+  startBalance: Float
 }
 
 type Todo @model @auth(rules: [{allow: public}]) {
